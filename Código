@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedra, Papel e Tesoura</title>
+  <script>
+    let continuar = true;
+
+    while (continuar) {
+      let jogador = prompt("Digite (pedra, papel ou tesoura): ").toLowerCase();
+
+      if (jogador === "pedra" || jogador === "papel" || jogador === "tesoura") {
+        let numero = Math.floor(Math.random() * 3);
+        let computador = "";
+
+        if (numero === 0) {
+          computador = "pedra";
+        } else if (numero === 1) {
+          computador = "papel";
+        } else {
+          computador = "tesoura";
+        }
+
+        alert("Computador escolheu: " + computador);
+
+        if (jogador === computador) {
+          alert("Empate!");
+        } else if (
+          (jogador === "pedra" && computador === "tesoura") ||
+          (jogador === "papel" && computador === "pedra") ||
+          (jogador === "tesoura" && computador === "papel")
+        ) {
+          alert("Você venceu!");
+        } else {
+          alert("Computador venceu!");
+        }
+
+        let resposta = prompt("Deseja jogar novamente? (sim ou não)").toLowerCase();
+        if (resposta !== "sim") {
+          continuar = false;
+          alert("Jogo encerrado!");
+        }
+
+      } else {
+        alert("Você digitou algo inválido. Tente novamente.");
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
